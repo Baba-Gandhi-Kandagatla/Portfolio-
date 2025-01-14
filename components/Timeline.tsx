@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, forwardRef } from 'react'
-@typescript-eslint/no-unused-vars
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
