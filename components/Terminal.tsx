@@ -16,6 +16,16 @@ const Terminal = forwardRef<HTMLElement>((props, ref) => {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState<string[]>(['Welcome to my portfolio! Type "help" for available commands.'])
   const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const scrollToBottom = () => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTo({
+        top: scrollAreaRef.current.scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   const handleCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -32,9 +42,8 @@ const Terminal = forwardRef<HTMLElement>((props, ref) => {
   }
 
   useEffect(() => {
-    if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight
-    }
+    scrollToBottom()
+    inputRef.current?.focus()
   }, [output])
 
   return (
@@ -55,10 +64,13 @@ const Terminal = forwardRef<HTMLElement>((props, ref) => {
         <div className="flex items-center">
           <span className="mr-2 text-blue-400">$</span>
           <Input
+            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleCommand}
+            onFocus={scrollToBottom}
+            autoFocus
             className="bg-transparent border-none text-green-500 focus:outline-none flex-grow"
             placeholder="Type a command..."
           />

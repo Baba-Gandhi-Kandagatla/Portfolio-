@@ -11,7 +11,7 @@ const About = forwardRef<HTMLElement, AboutProps>(({ isActive }, ref) => {
   return (
     <section ref={ref} id="about" className="scroll-mt-16">
       <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-      <Card>
+      <Card className="mx-auto max-w-3xl">
         <CardHeader>
           <CardTitle>Baba Gandhi Kandagatla</CardTitle>
         </CardHeader>
