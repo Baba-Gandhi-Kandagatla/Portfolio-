@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -38,9 +39,12 @@ export default function ImageModal({ images, onClose }: ImageModalProps) {
         <div className="relative">
           {images && images.length > 0 && (
             <>
-              <img
+              <Image
                 src={images[currentIndex]}
                 alt={`Project preview ${currentIndex + 1}`}
+                layout="responsive"
+                width={800}
+                height={600}
                 className="w-full h-auto rounded-lg"
               />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded">
