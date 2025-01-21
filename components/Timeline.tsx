@@ -1,46 +1,57 @@
-'use client'
+"use client"
 
-import { useState, forwardRef } from 'react'
+import { useState, forwardRef } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ImageIcon } from 'lucide-react'
-import ImageModal from './ImageModal'
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const projects = [
   {
     title: "SkillSage - Mock Interview System",
-    date: "2023",
-    description: "A scalable mock interview system for students, tailored to resumes and dynamically adapting based on interviewee responses.",
-    techStack: ["MERN Stack", "Node.js", "AI"],
+    date: "05-2023 to Present",
+    idea: "A scalable mock interview system for students, tailored to resumes and dynamically adapting based on interviewee responses.",
+    techStack: ["MERN Stack", "Node.js", "AI-based question generation"],
+    innovation:
+      "Supports real-time, personalized interviews at scale, helping colleges automate and improve their interview processes.",
+    impact:
+      "Enables efficient interview preparation for over 300 students simultaneously, with detailed analytics on individual performance, improving overall interview readiness by 40%.",
     color: "bg-blue-500",
     images: [
-      "/placeholder.svg?height=400&width=600&text=SkillSage+1",
-      "/placeholder.svg?height=400&width=600&text=SkillSage+2",
-      "/placeholder.svg?height=400&width=600&text=SkillSage+3",
+      "/placeholder.svg?height=400&width=600&text=SkillSage+Dashboard",
+      "/placeholder.svg?height=400&width=600&text=SkillSage+Interview",
+      "/placeholder.svg?height=400&width=600&text=SkillSage+Analytics",
     ],
   },
   {
     title: "Breast Cancer Detection Using AI & VR",
-    date: "2022",
-    description: "An AI-driven system for detecting breast cancer in ultrasound images, visualized in a VR environment.",
+    date: "01-2022 to 12-2022",
+    idea: "An AI-driven system for detecting breast cancer in ultrasound images, visualized in a VR environment.",
     techStack: ["MERN Stack", "Flask", "Unreal Engine", "EfficientNet", "U-Net"],
+    innovation:
+      "Real-time AI-based classification and segmentation of ultrasound imagery, with immersive VR display for detailed analysis.",
+    impact:
+      "Provides an intuitive tool for medical professionals and students to engage with complex diagnostic data, improving detection rates by 30%.",
     color: "bg-pink-500",
     images: [
-      "/placeholder.svg?height=400&width=600&text=Cancer+Detection+1",
-      "/placeholder.svg?height=400&width=600&text=Cancer+Detection+2",
+      "/placeholder.svg?height=400&width=600&text=Cancer+Detection+AI",
+      "/placeholder.svg?height=400&width=600&text=VR+Visualization",
     ],
   },
   {
     title: "Interactive Quiz Generator",
-    date: "2023",
-    description: "A web platform that dynamically adjusts quiz difficulty based on user inputs, such as the selected topic and provided documents or internet searches.",
+    date: "03-2023 to 06-2023",
+    idea: "A web platform that dynamically adjusts quiz difficulty based on user inputs, such as the selected topic and provided documents or internet searches.",
     techStack: ["MERN Stack", "Microsoft Phi 3.5 Mini"],
+    innovation: "AI integration to create personalized quizzes that adapt in real-time to the user's skill level.",
+    impact:
+      "Enhances user engagement and learning by offering quizzes tailored to individual preferences, resulting in a 50% improvement in quiz completion rates and a better understanding of complex topics.",
     color: "bg-purple-500",
     images: [
-      "/placeholder.svg?height=400&width=600&text=Quiz+Generator+1",
-      "/placeholder.svg?height=400&width=600&text=Quiz+Generator+2",
-      "/placeholder.svg?height=400&width=600&text=Quiz+Generator+3",
+      "/placeholder.svg?height=400&width=600&text=Quiz+Generator+UI",
+      "/placeholder.svg?height=400&width=600&text=Quiz+Taking+Interface",
+      "/placeholder.svg?height=400&width=600&text=Performance+Analytics",
     ],
   },
 ]
@@ -50,59 +61,90 @@ interface TimelineProps {
 }
 
 const Timeline = forwardRef<HTMLElement, TimelineProps>(({ isActive }, ref) => {
-  const [selectedImages, setSelectedImages] = useState<string[] | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({})
 
   if (!isActive) return null
 
+  const handlePrevImage = (projectTitle: string) => {
+    setCurrentImageIndex((prev) => ({
+      ...prev,
+      [projectTitle]:
+        (prev[projectTitle] - 1 + projects.find((p) => p.title === projectTitle)!.images.length) %
+        projects.find((p) => p.title === projectTitle)!.images.length,
+    }))
+  }
+
+  const handleNextImage = (projectTitle: string) => {
+    setCurrentImageIndex((prev) => ({
+      ...prev,
+      [projectTitle]: (prev[projectTitle] + 1) % projects.find((p) => p.title === projectTitle)!.images.length,
+    }))
+  }
+
   return (
-    <section ref={ref} id="projects" className="scroll-mt-16">
-      <h2 className="text-3xl font-bold mb-8 text-center">Project Timeline</h2>
-      <div className="space-y-8">
+    <section ref={ref} id="projects" className="scroll-mt-16 py-16">
+      <h2 className="text-4xl font-bold mb-12 text-center">Project Timeline</h2>
+      <div className="space-y-16">
         {projects.map((project, index) => (
-          <div key={index} className="flex flex-col md:flex-row">
-            <div className="flex-none w-full md:w-64 mb-4 md:mb-0">
-              <div className="h-full flex items-center justify-center md:justify-end">
-                <span className={`${project.color} text-white text-lg font-semibold py-2 px-4 rounded`}>
-                  {project.date}
-                </span>
-              </div>
-            </div>
-            <div className="flex-grow pl-0 md:pl-8 relative">
-              <div className="hidden md:block absolute left-0 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700" style={{ left: '-4px' }}></div>
-              <div className="hidden md:block absolute left-0 top-6 w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700" style={{ left: '-6px' }}></div>
-              <Card className="w-full transition-all duration-300 hover:shadow-lg">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    <span>{project.title}</span>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => setSelectedImages(project.images)}
-                      aria-label={`View ${project.title} images`}
-                    >
-                      <ImageIcon className="h-5 w-5" />
-                    </Button>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary">{tech}</Badge>
-                    ))}
+          <Card key={index} className="overflow-hidden">
+            <CardHeader className={`${project.color} text-white`}>
+              <CardTitle className="text-2xl">{project.title}</CardTitle>
+              <p className="text-sm font-semibold">{project.date}</p>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">Idea</h4>
+                    <p>{project.idea}</p>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech, techIndex) => (
+                        <Badge key={techIndex} variant="secondary">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Innovation</h4>
+                    <p>{project.innovation}</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Impact</h4>
+                    <p>{project.impact}</p>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                    <Image
+                      src={project.images[currentImageIndex[project.title] || 0]}
+                      alt={`${project.title} preview`}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <Button variant="secondary" size="icon" onClick={() => handlePrevImage(project.title)}>
+                      <ChevronLeft className="h-4 w-4" />
+                    </Button>
+                    <Button variant="secondary" size="icon" onClick={() => handleNextImage(project.title)}>
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
-      <ImageModal images={selectedImages} onClose={() => setSelectedImages(null)} />
     </section>
   )
 })
 
-Timeline.displayName = 'Timeline'
+Timeline.displayName = "Timeline"
 
 export default Timeline
 

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const educationData = [
@@ -30,18 +30,18 @@ const Education = forwardRef<HTMLElement, EducationProps>(({ isActive }, ref) =>
   if (!isActive) return null
 
   return (
-    <section ref={ref} id="education" className="scroll-mt-16">
-      <h2 className="text-3xl font-bold mb-8 text-center">Education</h2>
-      <div className="space-y-6">
+    <section ref={ref} id="education" className="scroll-mt-16 py-16">
+      <h2 className="text-4xl font-bold mb-12 text-center">Education</h2>
+      <div className="space-y-8 max-w-3xl mx-auto">
         {educationData.map((edu, index) => (
-          <Card key={index}>
+          <Card key={index} className="transition-all duration-300 hover:shadow-lg">
             <CardHeader>
-              <CardTitle>{edu.institution}</CardTitle>
+              <CardTitle className="text-xl">{edu.institution}</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-2">
               <p className="font-semibold">{edu.degree}</p>
               <p>{edu.period}</p>
-              <p>{edu.grade}</p>
+              <p className="text-sm text-muted-foreground">{edu.grade}</p>
             </CardContent>
           </Card>
         ))}
@@ -50,7 +50,7 @@ const Education = forwardRef<HTMLElement, EducationProps>(({ isActive }, ref) =>
   )
 })
 
-Education.displayName = 'Education'
+Education.displayName = "Education"
 
 export default Education
 
