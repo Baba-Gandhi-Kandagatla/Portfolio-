@@ -12,7 +12,7 @@ const projects = [
     title: "SkillSage - Mock Interview System",
     date: "05-2023 to Present",
     idea: "A scalable mock interview system for students, tailored to resumes and dynamically adapting based on interviewee responses.",
-    techStack: ["MERN Stack", "Node.js", "AI-based question generation"],
+    techStack: [ "Node.js", "React", "Express", "PostgreSQL", "Docker"],
     innovation:
       "Supports real-time, personalized interviews at scale, helping colleges automate and improve their interview processes.",
     impact:
@@ -43,7 +43,7 @@ const projects = [
     title: "Interactive Quiz Generator",
     date: "03-2023 to 06-2023",
     idea: "A web platform that dynamically adjusts quiz difficulty based on user inputs, such as the selected topic and provided documents or internet searches.",
-    techStack: ["MERN Stack", "Microsoft Phi 3.5 Mini"],
+    techStack: ["MERN Stack", "Fast Api with Microsoft Phi 3.5 Mini"],
     innovation: "AI integration to create personalized quizzes that adapt in real-time to the user's skill level.",
     impact:
       "Enhances user engagement and learning by offering quizzes tailored to individual preferences, resulting in a 50% improvement in quiz completion rates and a better understanding of complex topics.",
