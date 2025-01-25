@@ -12,7 +12,7 @@ const projects = [
     title: "SkillSage - Mock Interview System",
     date: "05-2023 to Present",
     idea: "A scalable mock interview system for students, tailored to resumes and dynamically adapting based on interviewee responses.",
-    techStack: [ "Node.js", "React", "Express", "PostgreSQL", "Docker"],
+    techStack: ["MERN Stack", "Node.js", "AI-based question generation"],
     innovation:
       "Supports real-time, personalized interviews at scale, helping colleges automate and improve their interview processes.",
     impact:
@@ -43,7 +43,7 @@ const projects = [
     title: "Interactive Quiz Generator",
     date: "03-2023 to 06-2023",
     idea: "A web platform that dynamically adjusts quiz difficulty based on user inputs, such as the selected topic and provided documents or internet searches.",
-    techStack: ["MERN Stack", "Fast Api with Microsoft Phi 3.5 Mini"],
+    techStack: ["MERN Stack", "Microsoft Phi 3.5 Mini"],
     innovation: "AI integration to create personalized quizzes that adapt in real-time to the user's skill level.",
     impact:
       "Enhances user engagement and learning by offering quizzes tailored to individual preferences, resulting in a 50% improvement in quiz completion rates and a better understanding of complex topics.",
@@ -52,6 +52,87 @@ const projects = [
       "/placeholder.svg?height=400&width=600&text=Quiz+Generator+UI",
       "/placeholder.svg?height=400&width=600&text=Quiz+Taking+Interface",
       "/placeholder.svg?height=400&width=600&text=Performance+Analytics",
+    ],
+  },
+  {
+    title: "System Compromise Detection Using AI",
+    date: "2022",
+    idea: "A desktop application using a Random Forest model to detect system compromise by analyzing network packet flow.",
+    techStack: ["Python", "Random Forest", "VirusTotal API"],
+    innovation: "Integration of machine learning with real-time threat intelligence for comprehensive system security.",
+    impact:
+      "Enhances system security by providing early detection of potential compromises, reducing response time to threats.",
+    color: "bg-green-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=System+Compromise+Detection+UI",
+      "/placeholder.svg?height=400&width=600&text=Network+Flow+Analysis",
+    ],
+  },
+  {
+    title: "Physics Virtual Lab",
+    date: "2021",
+    idea: "A Python Flask application for conducting virtual physics experiments, facilitating remote learning.",
+    techStack: ["Python", "Flask", "HTML/CSS", "JavaScript"],
+    innovation:
+      "Digitalization of physics experiments, making them accessible remotely and reducing physical lab costs.",
+    impact:
+      "Enables students to conduct experiments remotely, reducing costs and increasing accessibility to physics education.",
+    color: "bg-yellow-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=Physics+Virtual+Lab+Interface",
+      "/placeholder.svg?height=400&width=600&text=Virtual+Experiment+Demo",
+    ],
+  },
+  {
+    title: "OU Grade Retrieval Automation",
+    date: "2022",
+    idea: "An automated tool for retrieving student grades from the OU university portal.",
+    techStack: ["Python", "Web Scraping"],
+    innovation: "Automation of a manual, time-consuming process, significantly reducing administrative workload.",
+    impact: "Reduced grade retrieval time from three days to one minute, now used by multiple colleges.",
+    color: "bg-red-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=Grade+Retrieval+Dashboard",
+      "/placeholder.svg?height=400&width=600&text=Automation+Results",
+    ],
+  },
+  {
+    title: "Birthday Wishing App",
+    date: "2021",
+    idea: "A personalized mobile app featuring a to-do list, annual birthday wishes, daily NASA space photos, and randomized friend messages.",
+    techStack: ["Flutter","Dart", "NASA API"],
+    innovation: "Combination of personal organization tools with engaging, personalized content.",
+    impact: "Enhances personal connections and provides daily engagement through varied features.",
+    color: "bg-indigo-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=Birthday+App+Home",
+      "/placeholder.svg?height=400&width=600&text=NASA+Photo+of+the+Day",
+    ],
+  },
+  {
+    title: "LMS System Prototype",
+    date: "2022",
+    idea: "An LMS prototype with features like PDFs, videos, assessments, and quizzes organized by topics and units.",
+    techStack: ["MERN"],
+    innovation: "Comprehensive learning management system developed within the constraints of a hackathon.",
+    impact: "Provides a foundation for a full-fledged LMS, demonstrating rapid prototyping skills.",
+    color: "bg-teal-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=LMS+Dashboard",
+      "/placeholder.svg?height=400&width=600&text=Course+Content+View",
+    ],
+  },
+  {
+    title: "Amazon Product Advertising API Integration",
+    date: "2022",
+    idea: "Developed an API connection to the Amazon Product Advertising API for a freelance project.",
+    techStack: ["AMAZON PAAPI", "PYTHON FLASK"],
+    innovation: "Efficient integration of complex e-commerce API for product data retrieval.",
+    impact: "Successfully completed the project, earning ₹4,000 and gaining practical experience in API integration.",
+    color: "bg-orange-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=API+Integration+Diagram",
+      "/placeholder.svg?height=400&width=600&text=Product+Data+Display",
     ],
   },
 ]
