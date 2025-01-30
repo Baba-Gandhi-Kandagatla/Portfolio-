@@ -12,7 +12,7 @@ const projects = [
     title: "SkillSage - Mock Interview System",
     date: "05-2023 to Present",
     idea: "A scalable mock interview system for students, tailored to resumes and dynamically adapting based on interviewee responses.",
-    techStack: ["MERN Stack", "Node.js", "AI-based question generation"],
+    techStack:["React","Node","Express","PostgreSQL","Docker"],
     innovation:
       "Supports real-time, personalized interviews at scale, helping colleges automate and improve their interview processes.",
     impact:
@@ -28,7 +28,7 @@ const projects = [
     title: "Breast Cancer Detection Using AI & VR",
     date: "01-2022 to 12-2022",
     idea: "An AI-driven system for detecting breast cancer in ultrasound images, visualized in a VR environment.",
-    techStack: ["MERN Stack", "Flask", "Unreal Engine", "EfficientNet", "U-Net"],
+    techStack: ["MERN Stack", "Flask", "Unreal Engine", "EfficientNet", "U-Net","UnetR", "Vit b 16"],
     innovation:
       "Real-time AI-based classification and segmentation of ultrasound imagery, with immersive VR display for detailed analysis.",
     impact:
@@ -40,10 +40,31 @@ const projects = [
     ],
   },
   {
+    title: "AI-Powered Telegram Assistant Bot",
+    date: "2024",
+    idea: "A versatile Telegram bot combining multiple AI capabilities for chat, analysis, and information retrieval.",
+    techStack: [
+      "Python",
+      "MongoDB",
+      "Flask",
+      "Telegram API"
+    ],
+    innovation: 
+      "Integration of multiple AI models (Gemini AI variants) for different use cases, with sentiment analysis and real-time translation capabilities.",
+    impact:
+      "Provides comprehensive AI assistance through chat platform, supporting file analysis, web search, and multi-language communication.",
+    color: "bg-cyan-500",
+    images: [
+      "/placeholder.svg?height=400&width=600&text=Telegram+Bot+Demo",
+      "/placeholder.svg?height=400&width=600&text=AI+Chat+Interface",
+      "/placeholder.svg?height=400&width=600&text=Image+Analysis+Feature",
+    ],
+  },
+  {
     title: "Interactive Quiz Generator",
     date: "03-2023 to 06-2023",
     idea: "A web platform that dynamically adjusts quiz difficulty based on user inputs, such as the selected topic and provided documents or internet searches.",
-    techStack: ["MERN Stack", "Microsoft Phi 3.5 Mini"],
+    techStack: ["MERN Stack", "Fast Api with Microsoft Phi 3.5 Mini"],
     innovation: "AI integration to create personalized quizzes that adapt in real-time to the user's skill level.",
     impact:
       "Enhances user engagement and learning by offering quizzes tailored to individual preferences, resulting in a 50% improvement in quiz completion rates and a better understanding of complex topics.",
