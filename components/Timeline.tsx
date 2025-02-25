@@ -219,7 +219,7 @@ const Timeline = forwardRef<HTMLElement, TimelineProps>(({ isActive }, ref) => {
                     <p>{project.impact}</p>
                   </div>
                 </div>
-                <div className="relative">
+{/*                 <div className="relative">
                   <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
                     <Image
                       src={project.images[currentImageIndex[project.title] || 0]}
@@ -236,7 +236,7 @@ const Timeline = forwardRef<HTMLElement, TimelineProps>(({ isActive }, ref) => {
                       <ChevronRight className="h-4 w-4" />
                     </Button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </CardContent>
           </Card>
