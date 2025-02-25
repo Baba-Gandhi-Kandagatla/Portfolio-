@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, forwardRef } from "react"
+import { forwardRef } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 // import { Button } from "@/components/ui/button"
@@ -162,26 +162,13 @@ interface TimelineProps {
   isActive: boolean
 }
 
-// const Timeline = forwardRef<HTMLElement, TimelineProps>(({ isActive }, ref) => {
-//   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({})
+const Timeline = forwardRef<HTMLElement, TimelineProps>(({ isActive }, ref) => {
 
-//   if (!isActive) return null
+  if (!isActive) return null
 
-//   const handlePrevImage = (projectTitle: string) => {
-//     setCurrentImageIndex((prev) => ({
-//       ...prev,
-//       [projectTitle]:
-//         (prev[projectTitle] - 1 + projects.find((p) => p.title === projectTitle)!.images.length) %
-//         projects.find((p) => p.title === projectTitle)!.images.length,
-//     }))
-//   }
+  
 
-//   const handleNextImage = (projectTitle: string) => {
-//     setCurrentImageIndex((prev) => ({
-//       ...prev,
-//       [projectTitle]: (prev[projectTitle] + 1) % projects.find((p) => p.title === projectTitle)!.images.length,
-//     }))
-//   }
+ 
 
   return (
     <section ref={ref} id="projects" className="scroll-mt-16 py-16">
